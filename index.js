@@ -64,7 +64,13 @@ function log(msg) {
 }
 
 
+function useragent() {
+	return platform.useragent
+}
+
+
 module.exports = {
+	ua:   useragent,
 	init: init,
 	log:  log
 }
