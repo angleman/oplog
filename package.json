@@ -1,6 +1,6 @@
 {
   "name": "oplog",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "JSON Log to STDOUT or --log file",
   "main": "index.js",
   "scripts": {
