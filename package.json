@@ -7,7 +7,9 @@
     "test": "mocha -R list test/*.js"
   },
   "dependencies": {
-    "minimist": "0.0.8"
+    "minimist": "0.0.8",
+    "dias": "^0.3.5",
+    "string": "^1.8.0"
   },
   "devDependencies": {
     "grunt": "^0.4.3",

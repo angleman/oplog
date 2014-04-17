@@ -50,7 +50,7 @@ function log(msg) {
 		log.msg        = msg.name
 		log.error      = msg.message
 		log.errorStack = msg.stack
-	} else if (typeof msg == 'object' {
+	} else if (typeof msg == 'object') {
 		log            = msg
 	} else {
 		log.msg        = msg
