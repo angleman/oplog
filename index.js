@@ -2,8 +2,7 @@
 var fs        = require('fs')
 var argv      = require('minimist')(process.argv.slice(2))
 var dias      = require('dias')
-var S         = require('string')
-var microtime = require('microtime')
+var microtime = require('microtime-nodejs')
 var opUA      = ''
 var platform  = {}
 var options   = {}
@@ -31,11 +30,10 @@ function init(opts, cb) {
 	if (filename) opStream = fs.createWriteStream(filename, options)
 
 	if (typeof opts == 'object') { options = opts }
-	dias(function(data) {
+	dias({seperator:'; '}, function(data) {
 		platform = data
 		opUA     = platform.useragent
 		if (opts && opts.ua) {
-			opUA               = S(opUA).replaceAll(' ', '; ').s
 			opUA               = opts.ua + ' (' + opUA + ')'
 			platform.useragent = opUA
 		}
