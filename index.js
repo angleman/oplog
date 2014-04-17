@@ -57,7 +57,7 @@ function log(msg) {
 	}
 	log.opUA = platform.useragent
 	log.opOn = new Date().toISOString().replace('T', ' ').split('.')[0]
-	outStream.write(JSON.stringify(log) + "\n")
+	opStream.write(JSON.stringify(log) + "\n")
 	if (log.error) process.exit(1)
 }
 
