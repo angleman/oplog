@@ -70,7 +70,7 @@ function useragent() {
 
 
 module.exports = {
-	ua:   useragent,
-	init: init,
-	log:  log
+	useragent: useragent,
+	init:      init,
+	log:       log
 }
