@@ -44,15 +44,15 @@ function init(opts, cb) {
 
 // log operation
 function log(msg) {
-	var log    = (options.log) ? options.log : {}
+	var log            = (options.log) ? options.log : {}
 	if (msg instanceof Error) {
-		log.msg        = msg.name
+		log.op         = msg.name
 		log.error      = msg.message
 		log.errorStack = msg.stack
 	} else if (typeof msg == 'object') {
 		log            = msg
 	} else {
-		log.msg        = msg
+		log.op         = msg
 	}
 	log.opUA = platform.useragent
 	log.opOn = new Date().toISOString().replace('T', ' ').split('.')[0]
