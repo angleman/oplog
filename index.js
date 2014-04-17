@@ -54,7 +54,7 @@ function log(msg) {
 	} else {
 		log.op         = msg
 	}
-	log.opUA = platform.useragent
+	log.opUA = (log.opUA) ? log.opUA + ' ' + platform.useragent : platform.useragent
 	log.opOn = new Date().toISOString().replace('T', ' ').split('.')[0]
 	if (options.microtime) {
 		log.opOn += '.' + microtime.nowStruct()[1]
