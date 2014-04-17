@@ -1,12 +1,13 @@
 // oplog by jbk
-var fs       = require('fs')
-var argv     = require('minimist')(process.argv.slice(2))
-var dias     = require('dias')
-var S        = require('string')
-var opUA     = ''
-var platform = {}
-var options  = {}
-var opStream = process.stdout
+var fs        = require('fs')
+var argv      = require('minimist')(process.argv.slice(2))
+var dias      = require('dias')
+var S         = require('string')
+var microtime = require('microtime')
+var opUA      = ''
+var platform  = {}
+var options   = {}
+var opStream  = process.stdout
 
 // opOn = timestamp
 // opUA = useragent
@@ -57,6 +58,9 @@ function log(msg) {
 	}
 	log.opUA = platform.useragent
 	log.opOn = new Date().toISOString().replace('T', ' ').split('.')[0]
+	if (options.microtime) {
+		log.opOn += '.' + microtime.nowStruct()[1]
+	}
 	opStream.write(JSON.stringify(log) + "\n")
 	if (log.error) process.exit(1)
 }
