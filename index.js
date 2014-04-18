@@ -27,7 +27,7 @@ function init(opts, cb) {
 	}
 
 	var filename           = (argv.log) ? argv.log : (opts && opts.file) ? opts.file : undefined
-	if (filename) opStream = fs.createWriteStream(filename, options)
+	if (filename) opStream = fs.createWriteStream(filename, streamOptions)
 
 	if (typeof opts == 'object') { options = opts }
 	dias({seperator:'; '}, function(data) {
@@ -60,7 +60,7 @@ function log(msg) {
 		log.opOn += '.' + microtime.nowStruct()[1]
 	}
 	opStream.write(JSON.stringify(log) + "\n")
-	if (log.error) process.exit(1)
+	if (options.haltOnError && log.error) process.exit(1)
 }
 
 
