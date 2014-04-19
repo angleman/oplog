@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "minimist": "0.0.8",
-    "dias": "^0.3.5",
-    "microtime-nodejs": "^1.0.0"
+    "microtime-nodejs": "^1.0.0",
+    "dias": "^0.4.2"
   },
   "devDependencies": {
     "grunt": "^0.4.3",

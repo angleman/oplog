@@ -30,11 +30,11 @@ function init(opts, cb) {
 	if (filename) opStream = fs.createWriteStream(filename, streamOptions)
 
 	if (typeof opts == 'object') { options = opts }
-	dias({seperator:'; '}, function(data) {
+	dias({uanode: true}, function(data) {
 		platform = data
 		opUA     = platform.useragent
 		if (opts && opts.ua) {
-			opUA               = opts.ua + ' (' + opUA + ')'
+			opUA               = opts.ua + ' ' + opUA
 			platform.useragent = opUA
 		}
 		cb(platform)
